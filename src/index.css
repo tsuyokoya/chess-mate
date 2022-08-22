@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.temporary-bounce {
+  animation-iteration-count: 3.5;
+}
