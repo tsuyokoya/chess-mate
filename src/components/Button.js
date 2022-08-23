@@ -6,7 +6,7 @@ const Button = ({ icon, text, path, textSize = "text-xl" }) => {
   return (
     <div
       className={
-        "bg-lightGreen text-center block p-2 w-1/2 border-none rounded-lg hover:bg-green-700 hover:cursor-pointer " +
+        "bg-lightGreen text-center block p-2 w-1/2 border-none rounded-lg hover:bg-green-600 hover:cursor-pointer " +
         textSize
       }
     >
