@@ -1,21 +1,29 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-const Login = () => {
+const Login = ({ login }) => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({ username: "", password: "" });
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData(() => ({ ...formData, [name]: value }));
   };
-  console.log(formData);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    const { username, password } = formData;
+
     for (const value of Object.values(formData)) {
       if (value === "") {
         alert("Please enter your username and password");
         return;
       }
+    }
+
+    const res = await login(username, password);
+    if (res.success) {
+      navigate("/");
     }
   };
 
