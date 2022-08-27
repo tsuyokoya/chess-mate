@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-const Signup = () => {
+const Signup = ({ signup }) => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     username: "",
     password: "",
@@ -11,16 +13,23 @@ const Signup = () => {
     const { name, value } = e.target;
     setFormData(() => ({ ...formData, [name]: value }));
   };
-  console.log(formData);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("SUBMITTED");
+    const { username, password } = formData;
+
     for (const value of Object.values(formData)) {
       if (value === "") {
         alert("Please enter all fields");
         return;
       }
+    }
+    if (formData.password !== formData.passwordConfirm) {
+      alert("Passwords do not match");
+    }
+    const res = await signup(username, password);
+    if (res.success) {
+      navigate("/");
     }
   };
 
