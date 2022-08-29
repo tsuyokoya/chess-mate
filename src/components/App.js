@@ -9,14 +9,19 @@ import Signup from "./Signup";
 import Navbar from "./Navbar";
 
 const App = () => {
-  const [currentUser, setCurrentUser] = useState(null);
+  const [currentUser, setCurrentUser] = useState(
+    localStorage.getItem("username") || null
+  );
 
   const login = async (username, password) => {
     try {
       const res = await ChessMateApi.login(username, password);
-      setCurrentUser(res.username);
-      localStorage.setItem("username", res.username);
-      return { success: true };
+      if (res.failed) {
+        throw Error("Invalid username/password");
+      }
+      setCurrentUser(username);
+      localStorage.setItem("username", username);
+      return res;
     } catch (err) {
       console.log(err);
       alert("Invalid username/password");
@@ -26,9 +31,12 @@ const App = () => {
   const signup = async (username, password) => {
     try {
       const res = await ChessMateApi.signup(username, password);
-      setCurrentUser(res.username);
-      localStorage.setItem("username", res.username);
-      return { success: true };
+      if (res.failed) {
+        throw Error("Username already taken. Please enter another username.");
+      }
+      setCurrentUser(username);
+      localStorage.setItem("username", username);
+      return res;
     } catch (err) {
       console.log(err);
       alert("Username already taken. Please enter another username.");
