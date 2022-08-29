@@ -6,7 +6,11 @@ import { faChess } from "@fortawesome/free-solid-svg-icons";
 const Navbar = ({ logout, currentUser }) => {
   const view = currentUser ? (
     <>
-      <Link to="/logout" className="mr-4 hover:text-lightGreen">
+      <Link
+        to="/logout"
+        onClick={logout}
+        className="mr-4 hover:text-lightGreen"
+      >
         Logout {currentUser}
       </Link>
     </>
