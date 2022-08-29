@@ -28,7 +28,7 @@ const Signup = ({ signup }) => {
       alert("Passwords do not match");
     }
     const res = await signup(username, password);
-    if (res.success) {
+    if (res && res.success) {
       navigate("/");
     }
   };
@@ -60,7 +60,7 @@ const Signup = ({ signup }) => {
           </label>
           <input
             className="block p-2 w-1/2 border focus:border focus:border-lightGreen focus:ring-2 focus:ring-lightGreen rounded-lg dark:bg-gray-700 dark:placeholder-gray-300 dark:text-white"
-            type="text"
+            type="password"
             placeholder="Password"
             value={formData.password}
             onChange={handleInputChange}
@@ -74,7 +74,7 @@ const Signup = ({ signup }) => {
           </label>
           <input
             className="block p-2 w-1/2 border focus:border focus:border-lightGreen focus:ring-2 focus:ring-lightGreen rounded-lg dark:bg-gray-700 dark:placeholder-gray-300 dark:text-white"
-            type="text"
+            type="password"
             placeholder="Confirm Password"
             value={formData.passwordConfirm}
             onChange={handleInputChange}

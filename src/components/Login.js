@@ -22,7 +22,7 @@ const Login = ({ login }) => {
     }
 
     const res = await login(username, password);
-    if (res.success) {
+    if (res && res.success) {
       navigate("/");
     }
   };
@@ -54,7 +54,7 @@ const Login = ({ login }) => {
           </label>
           <input
             className="block p-2 w-1/2 border focus:border focus:border-lightGreen focus:ring-2 focus:ring-lightGreen rounded-lg dark:bg-gray-700 dark:placeholder-gray-300 dark:text-white"
-            type="text"
+            type="password"
             placeholder="Password"
             value={formData.password}
             onChange={handleInputChange}
