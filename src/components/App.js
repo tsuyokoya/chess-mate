@@ -7,6 +7,7 @@ import Room from "./Room";
 import Login from "./Login";
 import Signup from "./Signup";
 import Navbar from "./Navbar";
+import Game from "./Game";
 
 const App = () => {
   const [currentUser, setCurrentUser] = useState(
@@ -55,6 +56,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/room" element={<Room />} />
+          <Route path="/game" element={<Game />} />
           <Route path="/login" element={<Login login={login} />} />
           <Route path="/logout" element={<Navigate to="/" replace />} />
           <Route path="/signup" element={<Signup signup={signup} />} />
