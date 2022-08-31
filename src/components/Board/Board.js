@@ -87,7 +87,7 @@ const Board = () => {
     }
   }
   return (
-    <div className="Board h-[800px] w-[800px] flex flex-wrap">{board}</div>
+    <div className="Board h-[680px] w-[680px] flex flex-wrap">{board}</div>
   );
 };
 
