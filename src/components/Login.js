@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+import Footer from "./Footer";
+
 const Login = ({ login }) => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({ username: "", password: "" });
@@ -66,6 +68,7 @@ const Login = ({ login }) => {
           Login
         </button>
       </form>
+      <Footer />
     </div>
   );
 };

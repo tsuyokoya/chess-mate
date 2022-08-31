@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+import Footer from "./Footer";
+
 const Signup = ({ signup }) => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -86,6 +88,7 @@ const Signup = ({ signup }) => {
           Signup
         </button>
       </form>
+      <Footer />
     </div>
   );
 };
