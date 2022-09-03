@@ -15,7 +15,7 @@ const Room = () => {
     let username = `${adjective} ${noun}`;
     username = username.replace(/\s/g, "");
 
-    localStorage.setItem("username", username);
+    localStorage.setItem("guest", username);
     setRandomUsername(username);
   }, []);
 
