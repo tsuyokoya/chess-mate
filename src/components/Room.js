@@ -11,8 +11,12 @@ const Room = () => {
   useEffect(() => {
     const adjective = faker.word.adjective();
     const noun = faker.word.noun();
-    const username = `${adjective} ${noun}`;
-    setRandomUsername(username.replace(/\s/g, ""));
+
+    let username = `${adjective} ${noun}`;
+    username = username.replace(/\s/g, "");
+
+    localStorage.setItem("username", username);
+    setRandomUsername(username);
   }, []);
 
   const generateRoomId = () => {
